@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+
 export default function Homepage() {
-	return <div>Pro Store</div>
+	return <Button>Button</Button>
 }
