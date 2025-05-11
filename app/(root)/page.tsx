@@ -3,9 +3,14 @@ import { getLatestProducts } from '@/lib/actions/product.actions'
 
 export default async function Homepage() {
 	const latestProducts = await getLatestProducts()
+	const formattedProducts = latestProducts.map((product) => ({
+		...product,
+		price: product.price.toString(),
+		rating: product.rating.toString(),
+	}))
 	return (
-		<div>
-			<ProductList data={latestProducts} title='Newest Arrivals' limit={4} />
-		</div>
+		<>
+			<ProductList data={formattedProducts} title='Newest Arrivals' limit={4} />
+		</>
 	)
 }
